@@ -2,7 +2,6 @@ import {
   Flex,
   Box,
   Heading,
-  Link,
   Text,
   VStack,
   Input,
@@ -17,6 +16,8 @@ import ARCard from './ARCard';
 import logo from '../assets/logo.png';
 import logoIcon from '../assets/ChairIcon.png';
 import QRCode from 'qrcode.react';
+
+import { Link } from 'react-router-dom';
 
 const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
   return (
@@ -39,8 +40,14 @@ const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
             minH="100%"
             spacing={{ base: '5' }}
           >
-            <Text fontSize="3xl" fontWeight="normal" textAlign="center">
-              Future Marsian
+            <Text
+              fontSize="3xl"
+              fontWeight="normal"
+              textAlign="center"
+              lineHeight="shorter"
+              mt={{ base: '2.5', md: '0' }}
+            >
+              Comfy Couch
             </Text>
             <Box textAlign="center" display={{ base: 'none', md: 'block' }}>
               <Text as="h3" fontWeight="light">

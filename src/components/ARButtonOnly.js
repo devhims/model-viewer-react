@@ -1,7 +1,14 @@
 import '@google/model-viewer';
 import { Button, Box } from '@chakra-ui/react';
+import React, { useRef, useEffect } from 'react';
 
 const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
+  const hiddenButton = useRef(null);
+
+  useEffect(() => {
+    console.log(hiddenButton.current.getAttribute('slot').enabled);
+  }, [hiddenButton]);
+
   return (
     <Box className="ArButton" textAlign="center">
       <model-viewer
@@ -14,6 +21,7 @@ const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
         reveal="manual"
       >
         <Button
+          ref={hiddenButton}
           slot="ar-button"
           variant="outline"
           textTransform="uppercase"
@@ -21,6 +29,14 @@ const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
         >
           Activate AR
         </Button>
+        {/* <Button
+          ref={showButton}
+          variant="outline"
+          textTransform="uppercase"
+          colorScheme="linkedin"
+        >
+          AR Unavailable on this device
+        </Button> */}
       </model-viewer>
     </Box>
   );

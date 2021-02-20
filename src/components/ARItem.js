@@ -17,52 +17,53 @@ const ARItem = ({ name, img, glbLink, usdzLink, SkyBox }) => {
 
   return (
     <>
-      <Center>
-        <Box
-          className="ArBox"
-          bgColor="gray.200"
-          m="0"
-          p={3}
-          textAlign="center"
-          borderRadius={3}
-          shadow="dark-lg"
+      <Box
+        // className="ArBox"
+        className="ArCard"
+        bgColor="gray.200"
+        w="300px"
+        h="400px"
+        m="0"
+        p={3}
+        textAlign="center"
+        borderRadius={3}
+        shadow="dark-lg"
+      >
+        <model-viewer
+          loading="eager"
+          ref={inputRef}
+          src={glbLink}
+          ios-src={usdzLink}
+          poster={img}
+          // alt={name}
+          ar-modes="webxr scene-viewer quick-look"
+          auto-rotate
+          camera-controls
+          ar
+          shadow-intensity="1"
+          // skybox-image={SkyBox}
+          // environment-image={SkyBox}
+          environment-image="neutral"
+          exposure="2"
+          ar-scale="auto"
+          alt="A 3D model of some wall art"
         >
-          <model-viewer
-            loading="eager"
-            ref={inputRef}
-            src={glbLink}
-            ios-src={usdzLink}
-            poster={img}
-            // alt={name}
-            ar-modes="webxr scene-viewer quick-look"
-            auto-rotate
-            camera-controls
-            ar
-            shadow-intensity="1"
-            // skybox-image={SkyBox}
-            // environment-image={SkyBox}
-            environment-image="neutral"
-            exposure="2"
-            ar-scale="auto"
-            alt="A 3D model of some wall art"
+          <Button
+            slot="ar-button"
+            variant="outline"
+            textTransform="uppercase"
+            colorScheme="linkedin"
+            position="absolute"
+            bottom="4px"
+            left="27%"
+            height={6}
+            textAlign="center"
+            className="myB"
           >
-            <Button
-              slot="ar-button"
-              variant="outline"
-              textTransform="uppercase"
-              colorScheme="linkedin"
-              position="absolute"
-              bottom="4px"
-              left="27%"
-              height={6}
-              textAlign="center"
-              className="myB"
-            >
-              Launch AR
-            </Button>
-          </model-viewer>
-        </Box>
-      </Center>
+            Launch AR
+          </Button>
+        </model-viewer>
+      </Box>
     </>
   );
 };

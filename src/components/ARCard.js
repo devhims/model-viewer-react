@@ -10,7 +10,6 @@ import {
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 
-import ARButtonIcon from './ARButtonIcon';
 import PlaceIcon from '../assets/3dicon.png';
 
 const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
