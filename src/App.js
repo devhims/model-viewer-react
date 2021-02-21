@@ -1,5 +1,6 @@
 import './components/ARItem';
 import ARItem from './components/ARItem';
+import ARCard from './components/ARCard';
 import ARButtonOnly from './components/ARButtonOnly';
 import WithQRCode from './components/WithQRCode';
 
@@ -29,17 +30,15 @@ const name = 'Astronaut';
 function App() {
   return (
     <>
+      <ThemeSelector />
       <Router>
         <Switch>
           <Stack
-            spacing={5}
             direction="column"
             align="center"
+            justify="center"
             bgColor={mode('white', 'gray.600')}
           >
-            <Flex alignSelf="flex-start" m={4}>
-              <ThemeSelector />
-            </Flex>
             <Route path="/" exact>
               <WithQRCode
                 name={name}
@@ -50,20 +49,23 @@ function App() {
               />
             </Route>
             <Route path="/couchar" exact>
-              <ARItem
-                name={name}
-                img={CouchImage}
-                glbLink={OfficeCouchGLB}
-                usdzLink={OfficeCouchUSDZ}
-                SkyBox={SkyBox}
-              />
+              <Center my={5} h="80vh">
+                <ARCard
+                  name={name}
+                  img={CouchImage}
+                  glbLink={OfficeCouchGLB}
+                  usdzLink={OfficeCouchUSDZ}
+                  SkyBox={SkyBox}
+                />
+              </Center>
             </Route>
-            <ARButtonOnly
+
+            {/* <ARButtonOnly
               name={name}
               img={CouchImage}
               glbLink={OfficeCouchGLB}
               usdzLink={OfficeCouchUSDZ}
-            />
+            /> */}
           </Stack>
         </Switch>
       </Router>

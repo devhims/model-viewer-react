@@ -56,11 +56,11 @@ const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
               </Text>
               <Box w="128px" h="128px" m="0 auto" bgColor="beige" mt={2}>
                 <QRCode
-                  value={'http://picturesofpeoplescanningqrcodes.tumblr.com/'}
+                  value={'https://react-model-viewer.netlify.app/couchar/'}
                   size={128}
                   bgColor={mode('white', '#2d3848')}
                   fgColor={'#1591cf'}
-                  level={'L'}
+                  level={'M'}
                   includeMargin={false}
                   renderAs={'svg'}
                   imageSettings={{
@@ -73,7 +73,6 @@ const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
                   }}
                 />
               </Box>
-              {/* <Image src="./logo192.png" maxW="100px" m="auto" /> */}
             </Box>
             <Box>
               <Text as="h6" fontSize="smaller" fontWeight="hairline">
@@ -90,13 +89,15 @@ const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
           </Stack>
         </Box>
         <Box flex="1" p={{ base: '5', md: '8' }} m="auto">
-          <ARCard
-            name={name}
-            img={img}
-            glbLink={glbLink}
-            usdzLink={usdzLink}
-            SkyBox={SkyBox}
-          />
+          <Flex justifyContent={{ base: 'center', md: 'flex-start' }}>
+            <ARCard
+              name={name}
+              img={img}
+              glbLink={glbLink}
+              usdzLink={usdzLink}
+              SkyBox={SkyBox}
+            />
+          </Flex>
         </Box>
       </Flex>
     </>
