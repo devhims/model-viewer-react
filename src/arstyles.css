@@ -1,10 +1,3 @@
-.ArBox {
-  text-align: center;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
 .ArButton {
   text-align: center;
 }
@@ -31,4 +24,8 @@
   height: 100%;
   background-color: #f0f5f5;
   --poster-color: #ffffff00;
+}
+
+.ArButton .myB {
+  display: flex;
 }

@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import ARCard from './ARCard';
 import logo from '../assets/logo.png';
+import logoW from '../assets/logoW.png';
 import logoIcon from '../assets/ChairIcon.png';
 import QRCode from 'qrcode.react';
 
@@ -29,7 +30,7 @@ const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
         shadow="base"
         w={{ base: '90vw', md: '80vw' }}
         maxW="90vw"
-        bgColor={mode('white', '#222222')}
+        bgColor={mode('white', 'gray.700')}
         my={5}
       >
         <Box flex="1" p={{ base: '2', md: '10' }}>
@@ -57,7 +58,7 @@ const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
                 <QRCode
                   value={'http://picturesofpeoplescanningqrcodes.tumblr.com/'}
                   size={128}
-                  bgColor={mode('white', '#222222')}
+                  bgColor={mode('white', '#2d3848')}
                   fgColor={'#1591cf'}
                   level={'L'}
                   includeMargin={false}
@@ -79,7 +80,7 @@ const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
                 Powered By:
               </Text>
               <Image
-                src={logo}
+                src={mode(logo, logoW)}
                 w="80px"
                 m="auto"
                 mt={-4}

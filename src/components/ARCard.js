@@ -19,7 +19,7 @@ const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
         className="ArBox"
         bgColor={mode('gray.200', 'gray.400')}
         m="0"
-        p={3}
+        p={{ base: '1', md: '2' }}
         textAlign="center"
         borderRadius={3}
         shadow="dark-lg"
@@ -42,7 +42,7 @@ const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
           // skybox-image={SkyBox}
           // environment-image={SkyBox}
           environment-image="neutral"
-          exposure="2"
+          exposure={mode('2', '1')}
           ar-scale="auto"
           alt="A 3D model of some wall art"
         >

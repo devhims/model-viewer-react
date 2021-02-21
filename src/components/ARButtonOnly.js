@@ -6,8 +6,17 @@ const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
   const hiddenButton = useRef(null);
 
   useEffect(() => {
-    console.log(hiddenButton.current.getAttribute('slot').enabled);
+    console.log(getComputedStyle(hiddenButton.current));
+    console.log(getComputedStyle(hiddenButton.current).display);
   }, [hiddenButton]);
+
+  // useEffect(() => {
+  //   const timeout = setInterval(() => {
+  //     console.log(getComputedStyle(hiddenButton.current).display);
+  //   }, 1000);
+
+  //   return () => timeout;
+  // });
 
   return (
     <Box className="ArButton" textAlign="center">
@@ -21,6 +30,8 @@ const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
         reveal="manual"
       >
         <Button
+          style={{ display: 'flex' }}
+          className="myB"
           ref={hiddenButton}
           slot="ar-button"
           variant="outline"
