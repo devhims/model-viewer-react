@@ -40,7 +40,16 @@ function App() {
             bgColor={mode('white', 'gray.600')}
           >
             <Route path="/" exact>
-              <WithQRCode
+              <Center my={5} h="80vh">
+                <WithQRCode
+                  name={name}
+                  img={CouchImage}
+                  glbLink={OfficeCouchGLB}
+                  usdzLink={OfficeCouchUSDZ}
+                  SkyBox={SkyBox}
+                />
+              </Center>
+              <ARCard
                 name={name}
                 img={CouchImage}
                 glbLink={OfficeCouchGLB}
@@ -48,7 +57,18 @@ function App() {
                 SkyBox={SkyBox}
               />
             </Route>
-            <Route path="/couchar" exact>
+            <Route path="/comfycouch">
+              <Center my={5} h="80vh">
+                <WithQRCode
+                  name={name}
+                  img={CouchImage}
+                  glbLink={OfficeCouchGLB}
+                  usdzLink={OfficeCouchUSDZ}
+                  SkyBox={SkyBox}
+                />
+              </Center>
+            </Route>
+            <Route path="/couchar">
               <Center my={5} h="80vh">
                 <ARCard
                   name={name}

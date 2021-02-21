@@ -12,7 +12,7 @@ const ThemeSelector = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box mr={2}>
+    <Box m={3}>
       <IconButton
         icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
         onClick={toggleColorMode}
