@@ -69,7 +69,7 @@ function App() {
               </Center>
             </Route>
             <Route path="/couchar">
-              <Center my={5} h="80vh">
+              <Center my={5} h="70vh">
                 <ARCard
                   name={name}
                   img={CouchImage}
