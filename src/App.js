@@ -49,7 +49,7 @@ function App() {
                 SkyBox={SkyBox}
               />
             </Route>
-            <Route path="/couchar">
+            <Route path="/couchar" exact>
               <ARItem
                 name={name}
                 img={CouchImage}
