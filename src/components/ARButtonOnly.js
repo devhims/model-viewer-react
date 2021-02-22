@@ -1,54 +1,62 @@
 import '@google/model-viewer';
-import { Button, Box } from '@chakra-ui/react';
-import React, { useRef, useEffect } from 'react';
+import { Button, Box, Image } from '@chakra-ui/react';
+import React, { useRef, useEffect, useState } from 'react';
+
+import PlaceIcon from '../assets/3dicon.png';
 
 const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
-  const hiddenButton = useRef(null);
+  const arButton = useRef(null);
+  const [hide, setHide] = useState(false);
 
   useEffect(() => {
-    console.log(getComputedStyle(hiddenButton.current));
-    console.log(getComputedStyle(hiddenButton.current).display);
-  }, [hiddenButton]);
+    if (arButton) {
+      isHidden(arButton.current) ? setHide(true) : setHide(false);
+    }
+  }, [arButton]);
 
-  // useEffect(() => {
-  //   const timeout = setInterval(() => {
-  //     console.log(getComputedStyle(hiddenButton.current).display);
-  //   }, 1000);
-
-  //   return () => timeout;
-  // });
+  const isHidden = (el) => {
+    return el.offsetParent === null;
+  };
 
   return (
-    <Box className="ArButton" textAlign="center">
+    <Box className="ArButton">
       <model-viewer
         src={glbLink}
         ios-src={usdzLink}
-        ar-modes="webxr scene-viewer quick-look"
+        ar-modes="scene-viewer quick-look"
         ar
         ar-scale="auto"
         alt="A 3D model of some wall art"
         reveal="manual"
       >
         <Button
-          style={{ display: 'flex' }}
-          className="myB"
-          ref={hiddenButton}
+          ref={arButton}
+          leftIcon={<Image src={PlaceIcon} w="15px" />}
           slot="ar-button"
-          variant="outline"
+          variant="solid"
           textTransform="uppercase"
           colorScheme="linkedin"
+          position="absolute"
+          bottom="4px"
+          left="27%"
+          height={6}
+          className="myB"
+          fontWeight="normal"
+          ml={-3.5}
         >
-          Activate AR
+          Launch AR
         </Button>
-        {/* <Button
-          ref={showButton}
-          variant="outline"
-          textTransform="uppercase"
-          colorScheme="linkedin"
-        >
-          AR Unavailable on this device
-        </Button> */}
       </model-viewer>
+      <Button
+        display={hide ? 'flex' : 'none'}
+        // display="flex"
+        disabled
+        variant="solid"
+        textTransform="uppercase"
+        colorScheme="linkedin"
+      >
+        AR not available on this device
+      </Button>
     </Box>
   );
 };

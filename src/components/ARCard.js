@@ -11,8 +11,62 @@ import {
 } from '@chakra-ui/react';
 
 import PlaceIcon from '../assets/3dicon.png';
+import React, { useRef, useEffect, useState } from 'react';
 
 const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
+  const modelViewer = useRef(null);
+  const arButton = useRef(null);
+  const [displayMode, setDisplayMode] = useState('');
+  const [hide, setHide] = useState(false);
+  console.log(displayMode);
+
+  let output = null;
+
+  // useEffect(() => {
+  //   // console.log(modelViewer.current.shadowRoot.innerHTML);
+  //   const val = modelViewer.current.shadowRoot.innerHTML.substring(4128, 4132);
+  //   // console.log(modelViewer.current.getAttribute('ar-modes').mode);
+  //   // console.log(modelViewer.current.shadowRoot.firstElementChild);
+  //   // console.log(
+  //   //   getComputedStyle(modelViewer.current.shadowRoot.firstElementChild).display
+  //   // );
+  //   // setDisplayMode(
+  //   //   getComputedStyle(modelViewer.current.shadowRoot.firstElementChild).display
+  //   // );
+  //   val && setDisplayMode(val);
+  // }, [modelViewer]);
+
+  // useEffect(() => {
+  //   if (arButton) {
+  //     console.log(getComputedStyle(arButton.current));
+  //     const style = getComputedStyle(arButton.current);
+  //     const display = style.display;
+  //     console.log(display);
+  //   }
+  // }, [arButton]);
+
+  useEffect(() => {
+    if (arButton) {
+      //getAR();
+      // console.log(isHidden(arButton.current));
+      isHidden(arButton.current) ? setHide(true) : setHide(false);
+    }
+  }, [arButton]);
+
+  const isHidden = (el) => {
+    return el.offsetParent === null;
+  };
+
+  const getAR = async () => {
+    try {
+      output = await modelViewer.current.activateAR();
+      console.log('ouput', output);
+      console.log('ouput', modelViewer.current);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Box
       className="ArCard"
@@ -28,6 +82,8 @@ const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
       h={{ base: '350px', md: '400px' }}
     >
       <model-viewer
+        ref={modelViewer}
+        // reveal="interaction"
         loading="eager"
         src={glbLink}
         ios-src={usdzLink}
@@ -46,9 +102,10 @@ const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
         alt="A 3D model of some wall art"
       >
         <Button
+          ref={arButton}
           leftIcon={<Image src={PlaceIcon} w="15px" />}
           slot="ar-button"
-          variant="outline"
+          variant="solid"
           textTransform="uppercase"
           colorScheme="linkedin"
           position="absolute"
@@ -84,6 +141,16 @@ const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
           AR Enabled
         </Text>
       </Flex>
+      <Badge
+        display={hide ? 'block' : 'none'}
+        colorScheme="red"
+        position="absolute"
+        bottom="7.5px"
+        left="0"
+        w="inherit"
+      >
+        AR not available on this device
+      </Badge>
     </Box>
   );
 };

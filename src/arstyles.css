@@ -12,9 +12,7 @@
 .ArButton model-viewer {
   display: inline-block;
   contain: size;
-  height: 0;
-  background-color: #a0a0a0;
-  --poster-color: #ffffff00;
+  height: inherit;
 }
 
 .ArCard model-viewer {

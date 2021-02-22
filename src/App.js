@@ -20,6 +20,7 @@ import {
   VStack,
   Text,
   Heading,
+  Divider,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 
@@ -33,14 +34,14 @@ function App() {
       <ThemeSelector />
       <Router>
         <Switch>
-          <Stack
-            direction="column"
-            align="center"
-            justify="center"
-            bgColor={mode('white', 'gray.600')}
-          >
-            <Route path="/" exact>
-              <Center my={5} h="80vh">
+          <Route path="/" exact>
+            <VStack
+              justify="space-evenly"
+              bgColor={mode('white', 'gray.600')}
+              minH="100vh"
+              overflow="scroll"
+            >
+              <Center py={{ base: '5', md: '10' }}>
                 <WithQRCode
                   name={name}
                   img={CouchImage}
@@ -49,27 +50,8 @@ function App() {
                   SkyBox={SkyBox}
                 />
               </Center>
-              <ARCard
-                name={name}
-                img={CouchImage}
-                glbLink={OfficeCouchGLB}
-                usdzLink={OfficeCouchUSDZ}
-                SkyBox={SkyBox}
-              />
-            </Route>
-            <Route path="/comfycouch">
-              <Center my={5} h="80vh">
-                <WithQRCode
-                  name={name}
-                  img={CouchImage}
-                  glbLink={OfficeCouchGLB}
-                  usdzLink={OfficeCouchUSDZ}
-                  SkyBox={SkyBox}
-                />
-              </Center>
-            </Route>
-            <Route path="/couchar">
-              <Center my={5} h="70vh">
+              <Divider />
+              <Center py={10}>
                 <ARCard
                   name={name}
                   img={CouchImage}
@@ -78,15 +60,50 @@ function App() {
                   SkyBox={SkyBox}
                 />
               </Center>
-            </Route>
-
-            {/* <ARButtonOnly
-              name={name}
-              img={CouchImage}
-              glbLink={OfficeCouchGLB}
-              usdzLink={OfficeCouchUSDZ}
-            /> */}
-          </Stack>
+              <Divider />
+              <Center py={10}>
+                <ARButtonOnly
+                  name={name}
+                  img={CouchImage}
+                  glbLink={OfficeCouchGLB}
+                  usdzLink={OfficeCouchUSDZ}
+                />
+              </Center>
+              <Divider />
+            </VStack>
+          </Route>
+          <Route path="/comfycouch">
+            <Center my={5} h="80vh">
+              <WithQRCode
+                name={name}
+                img={CouchImage}
+                glbLink={OfficeCouchGLB}
+                usdzLink={OfficeCouchUSDZ}
+                SkyBox={SkyBox}
+              />
+            </Center>
+          </Route>
+          <Route path="/couchar">
+            <Center my={5} h="70vh">
+              <ARCard
+                name={name}
+                img={CouchImage}
+                glbLink={OfficeCouchGLB}
+                usdzLink={OfficeCouchUSDZ}
+                SkyBox={SkyBox}
+              />
+            </Center>
+          </Route>
+          <Route path="/arbutton">
+            <Center my={5} h="70vh">
+              <ARButtonOnly
+                name={name}
+                img={CouchImage}
+                glbLink={OfficeCouchGLB}
+                usdzLink={OfficeCouchUSDZ}
+              />
+            </Center>
+          </Route>
         </Switch>
       </Router>
     </>
