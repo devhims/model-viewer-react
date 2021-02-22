@@ -21,6 +21,7 @@ import {
   Text,
   Heading,
   Divider,
+  Tag,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 
@@ -41,35 +42,99 @@ function App() {
               minH="100vh"
               overflow="scroll"
             >
-              <Center py={{ base: '5', md: '10' }}>
-                <WithQRCode
-                  name={name}
-                  img={CouchImage}
-                  glbLink={OfficeCouchGLB}
-                  usdzLink={OfficeCouchUSDZ}
-                  SkyBox={SkyBox}
-                />
+              <Divider mb={3} borderWidth="2px" />
+              <Center
+                py={{ base: '5', md: '10' }}
+                borderWidth="1px"
+                p={3}
+                borderRadius="md"
+                shadow="baseline"
+                mb={5}
+              >
+                <VStack>
+                  <Tag
+                    size="lg"
+                    variant="solid"
+                    colorScheme="pink"
+                    rounded="sm"
+                    fontSize="sm"
+                    alignSelf="flex-start"
+                    mb={5}
+                    ml={-4}
+                    mt={-1}
+                  >
+                    Card with QR Code:
+                  </Tag>
+                  <WithQRCode
+                    name={name}
+                    img={CouchImage}
+                    glbLink={OfficeCouchGLB}
+                    usdzLink={OfficeCouchUSDZ}
+                    SkyBox={SkyBox}
+                  />
+                </VStack>
               </Center>
-              <Divider />
-              <Center py={10}>
-                <ARCard
-                  name={name}
-                  img={CouchImage}
-                  glbLink={OfficeCouchGLB}
-                  usdzLink={OfficeCouchUSDZ}
-                  SkyBox={SkyBox}
-                />
+              <Divider m={3} borderWidth="2px" />
+              <Center
+                borderWidth="1px"
+                p={3}
+                borderRadius="md"
+                shadow="baseline"
+                mb={5}
+              >
+                <VStack w="inherit">
+                  <Tag
+                    size="lg"
+                    variant="solid"
+                    colorScheme="pink"
+                    rounded="sm"
+                    fontSize="sm"
+                    alignSelf="flex-start"
+                    mb={{ base: '2', md: '4' }}
+                    ml={-4}
+                    mt={-1}
+                  >
+                    Simple AR Card:
+                  </Tag>
+                  <ARCard
+                    name={name}
+                    img={CouchImage}
+                    glbLink={OfficeCouchGLB}
+                    usdzLink={OfficeCouchUSDZ}
+                    SkyBox={SkyBox}
+                  />
+                </VStack>
               </Center>
-              <Divider />
-              <Center py={10}>
-                <ARButtonOnly
-                  name={name}
-                  img={CouchImage}
-                  glbLink={OfficeCouchGLB}
-                  usdzLink={OfficeCouchUSDZ}
-                />
+              <Divider borderWidth="2px" m={3} />
+              <Center
+                borderWidth="1px"
+                p={3}
+                borderRadius="md"
+                shadow="baseline"
+              >
+                <VStack>
+                  <Tag
+                    size="lg"
+                    variant="solid"
+                    colorScheme="pink"
+                    rounded="sm"
+                    fontSize="sm"
+                    alignSelf="flex-start"
+                    mb={5}
+                    ml={-4}
+                    mt={-1}
+                  >
+                    AR Button:
+                  </Tag>
+                  <ARButtonOnly
+                    name={name}
+                    img={CouchImage}
+                    glbLink={OfficeCouchGLB}
+                    usdzLink={OfficeCouchUSDZ}
+                  />
+                </VStack>
               </Center>
-              <Divider />
+              <Divider borderWidth="2px" />
             </VStack>
           </Route>
           <Route path="/comfycouch">
