@@ -26,6 +26,7 @@ import {
 } from '@chakra-ui/react';
 
 import ThemeSelector from './components/ThemeSelector';
+import CardLink from './components/CardLinks';
 
 const name = 'Astronaut';
 
@@ -36,6 +37,8 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact>
+            <Divider borderWidth="2px" />
+            <CardLink />
             <VStack
               justify="space-evenly"
               bgColor={mode('white', 'gray.600')}
