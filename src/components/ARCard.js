@@ -100,7 +100,6 @@ const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
         ar-scale="auto"
         alt="A 3D model of some wall art"
       >
-        <div id="progress" slot="progress-bar"></div>
         <Button
           ref={arButton}
           leftIcon={<Image src={PlaceIconWhite} w="15px" />}

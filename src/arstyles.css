@@ -37,7 +37,7 @@ body {
   display: flex;
 }
 
-#progress {
+/* #progress {
   position: absolute;
   width: calc(100% / 3);
   height: 10px;
@@ -54,4 +54,4 @@ body {
 #progress.show {
   transition-delay: 0s;
   opacity: 1;
-}
+} */
