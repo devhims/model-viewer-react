@@ -6,14 +6,37 @@ By combining the forces of model viewer and Chakra UI, I'm creating React compon
 
 Presenting 3 components that are already developed
 
-1. With QR Code (check out the site link on desktop browser)
+1. Card with QR Code (check out the site link on desktop browser for preview):
 
-```sh
-  <WithQRCode
-    name={name}
-    img={CouchImage}
-    glbLink={OfficeCouchGLB}
-    usdzLink={OfficeCouchUSDZ}
-    SkyBox={SkyBox}
-  />
+```javascript
+<WithQRCode
+  name={name}
+  img={CouchImage}
+  glbLink={OfficeCouchGLB}
+  usdzLink={OfficeCouchUSDZ}
+  SkyBox={SkyBox}
+/>
+```
+
+2. Simple AR Card
+
+```javascript
+<ARCard
+  name={name}
+  img={CouchImage}
+  glbLink={OfficeCouchGLB}
+  usdzLink={OfficeCouchUSDZ}
+  SkyBox={SkyBox}
+/>
+```
+
+2. AR Button
+
+```javascript
+<ARButtonOnly
+  name={name}
+  img={CouchImage}
+  glbLink={OfficeCouchGLB}
+  usdzLink={OfficeCouchUSDZ}
+/>
 ```
