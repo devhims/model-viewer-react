@@ -16,7 +16,7 @@ const SiteBanner = () => {
           fontWeight="extrabold"
           letterSpacing="tight"
         >
-          Model Viewer for React 🎉
+          Model Viewer for React ⚡
         </Heading>
         <Text mt="4" fontSize="lg">
           Tailor made components and layouts to speed up your AR workflow on the
