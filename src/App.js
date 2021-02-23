@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import './components/ARItem';
-import ARItem from './components/ARItem';
+import React, { useRef } from 'react';
+
 import ARCard from './components/ARCard';
 import ARButtonOnly from './components/ARButtonOnly';
 import WithQRCode from './components/WithQRCode';
@@ -13,27 +12,24 @@ import SkyBox from './assets/spruit_sunrise_1k_HDR.hdr';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import {
-  Box,
-  Flex,
   Center,
-  Stack,
-  Button,
   VStack,
-  Text,
-  Heading,
   Divider,
   Tag,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 
-import ThemeSelector from './components/ThemeSelector';
 import SiteBanner from './components/SiteBanner';
 import NavBar from './components/NavBar';
-import userEvent from '@testing-library/user-event';
-
-const name = 'Astronaut';
+import SampleModel from './utilis/SampleModel';
 
 const App = () => {
+  const titleRef = useRef(null);
+
+  const handleScroll = () => {
+    titleRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
       <Router>
@@ -41,7 +37,7 @@ const App = () => {
         <Divider borderWidth="2px" />
         <Switch>
           <Route path="/" exact>
-            <SiteBanner />
+            <SiteBanner handleScroll={handleScroll} />
             <VStack
               justify="space-evenly"
               bgColor={mode('white', 'gray.600')}
@@ -56,7 +52,7 @@ const App = () => {
                 borderRadius="md"
                 shadow="baseline"
                 mb={5}
-                id={'section1'}
+                ref={titleRef}
               >
                 <VStack>
                   <Tag
@@ -72,12 +68,12 @@ const App = () => {
                   >
                     Card with QR Code:
                   </Tag>
+                  {/* 1. Assign only the required properties from the object */}
                   <WithQRCode
-                    name={name}
-                    img={CouchImage}
-                    glbLink={OfficeCouchGLB}
-                    usdzLink={OfficeCouchUSDZ}
-                    SkyBox={SkyBox}
+                    name={SampleModel.name}
+                    img={SampleModel.CouchImage}
+                    glbLink={SampleModel.glbLink}
+                    usdzLink={SampleModel.usdzLink}
                   />
                 </VStack>
               </Center>
@@ -103,13 +99,8 @@ const App = () => {
                   >
                     Simple AR Card:
                   </Tag>
-                  <ARCard
-                    name={name}
-                    img={CouchImage}
-                    glbLink={OfficeCouchGLB}
-                    usdzLink={OfficeCouchUSDZ}
-                    SkyBox={SkyBox}
-                  />
+                  {/* 2. Use spread operator to assign the properties */}
+                  <ARCard {...SampleModel} />
                 </VStack>
               </Center>
               <Divider borderWidth="2px" m={3} />
@@ -133,8 +124,9 @@ const App = () => {
                   >
                     AR Button:
                   </Tag>
+                  {/* 3. Assign direct imports with some indirect object properties */}
                   <ARButtonOnly
-                    name={name}
+                    name={SampleModel.name}
                     img={CouchImage}
                     glbLink={OfficeCouchGLB}
                     usdzLink={OfficeCouchUSDZ}
@@ -147,7 +139,7 @@ const App = () => {
           <Route path="/comfycouch">
             <Center my={5} h="80vh">
               <WithQRCode
-                name={name}
+                name={SampleModel.name}
                 img={CouchImage}
                 glbLink={OfficeCouchGLB}
                 usdzLink={OfficeCouchUSDZ}
@@ -157,19 +149,13 @@ const App = () => {
           </Route>
           <Route path="/couchar">
             <Center my={5} h="70vh">
-              <ARCard
-                name={name}
-                img={CouchImage}
-                glbLink={OfficeCouchGLB}
-                usdzLink={OfficeCouchUSDZ}
-                SkyBox={SkyBox}
-              />
+              <ARCard {...SampleModel} />
             </Center>
           </Route>
           <Route path="/arbutton">
             <Center my={5} h="70vh">
               <ARButtonOnly
-                name={name}
+                name={SampleModel.name}
                 img={CouchImage}
                 glbLink={OfficeCouchGLB}
                 usdzLink={OfficeCouchUSDZ}

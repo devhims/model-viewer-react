@@ -4,7 +4,6 @@ import {
   Button,
   Text,
   Box,
-  Center,
   Flex,
   Image,
   useColorModeValue as mode,
@@ -13,57 +12,35 @@ import {
 import PlaceIconWhite from '../assets/3diconWhite.png';
 import React, { useRef, useEffect, useState } from 'react';
 
-const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
-  const modelViewer = useRef(null);
+const ARCard = ({
+  name,
+  img,
+  glbLink,
+  usdzLink,
+  loading,
+  alt,
+  link,
+  arModes,
+  ar,
+  skyboxImage,
+  environmentImage,
+  exposure,
+  arScale,
+  shadowIntensity,
+}) => {
   const arButton = useRef(null);
-  const [displayMode, setDisplayMode] = useState('');
   const [hide, setHide] = useState(false);
 
-  let output = null;
-
-  // useEffect(() => {
-  //   // console.log(modelViewer.current.shadowRoot.innerHTML);
-  //   const val = modelViewer.current.shadowRoot.innerHTML.substring(4128, 4132);
-  //   // console.log(modelViewer.current.getAttribute('ar-modes').mode);
-  //   // console.log(modelViewer.current.shadowRoot.firstElementChild);
-  //   // console.log(
-  //   //   getComputedStyle(modelViewer.current.shadowRoot.firstElementChild).display
-  //   // );
-  //   // setDisplayMode(
-  //   //   getComputedStyle(modelViewer.current.shadowRoot.firstElementChild).display
-  //   // );
-  //   val && setDisplayMode(val);
-  // }, [modelViewer]);
-
-  // useEffect(() => {
-  //   if (arButton) {
-  //     console.log(getComputedStyle(arButton.current));
-  //     const style = getComputedStyle(arButton.current);
-  //     const display = style.display;
-  //     console.log(display);
-  //   }
-  // }, [arButton]);
+  let currentExposure = mode('2', '1');
 
   useEffect(() => {
     if (arButton) {
-      //getAR();
-      // console.log(isHidden(arButton.current));
       isHidden(arButton.current) ? setHide(true) : setHide(false);
     }
   }, [arButton]);
 
-  const isHidden = (el) => {
-    return el.offsetParent === null;
-  };
-
-  const getAR = async () => {
-    try {
-      output = await modelViewer.current.activateAR();
-      console.log('ouput', output);
-      console.log('ouput', modelViewer.current);
-    } catch (error) {
-      console.log(error);
-    }
+  const isHidden = (element) => {
+    return element.offsetParent === null;
   };
 
   return (
@@ -81,24 +58,24 @@ const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
       h={{ base: '350px', md: '400px' }}
     >
       <model-viewer
-        ref={modelViewer}
-        // reveal="interaction"
-        loading="eager"
+        alt={alt}
+        loading={loading}
         src={glbLink}
         ios-src={usdzLink}
         poster={img}
-        // alt={name}
-        ar-modes="scene-viewer quick-look"
+        ar-modes={arModes}
         auto-rotate
         camera-controls
-        ar
-        shadow-intensity="1"
-        // skybox-image={SkyBox}
-        // environment-image={SkyBox}
-        environment-image="neutral"
-        exposure={mode('2', '1')}
-        ar-scale="auto"
-        alt="A 3D model of some wall art"
+        ar={ar}
+        shadow-intensity={shadowIntensity}
+        skybox-image={skyboxImage}
+        environment-image={skyboxImage}
+        environment-image={environmentImage}
+        exposure={currentExposure}
+        ar-scale={arScale}
+        alt={alt}
+        title={name}
+        link={link}
       >
         <Button
           ref={arButton}
@@ -155,3 +132,30 @@ const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
 };
 
 export default ARCard;
+
+ARCard.defaultProps = {
+  glbLink:
+    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Office_Couch.glb',
+  usdzLink:
+    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Office_Couch.usdz',
+  img:
+    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Couch.png',
+
+  loading: 'eager',
+  reveal: 'auto',
+  autoRotate: true,
+  cameraControls: true,
+  shadowIntensity: '1',
+  environmentImage: 'neutral',
+  skyboxImage: null,
+  exposure: '2',
+  reveal: 'auto',
+  ar: true,
+  arModes: 'scene-viewer quick-look',
+  arScale: 'auto',
+  arPlacement: 'floor',
+  alt: '3D model',
+  name: 'Comfy Couch',
+  link: 'https://cosmoreal.io/',
+  skyboxImage: null,
+};

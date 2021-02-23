@@ -18,8 +18,6 @@ import logoW from '../assets/logoW.png';
 import logoIcon from '../assets/ChairIcon.png';
 import QRCode from 'qrcode.react';
 
-import { Link } from 'react-router-dom';
-
 const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
   return (
     <>

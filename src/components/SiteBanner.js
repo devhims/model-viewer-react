@@ -1,6 +1,6 @@
 import { Box, Button, Heading, Text, Code, Link } from '@chakra-ui/react';
 
-const SiteBanner = () => {
+const SiteBanner = ({ handleScroll }) => {
   return (
     <Box as="section">
       <Box
@@ -11,8 +11,8 @@ const SiteBanner = () => {
         textAlign="center"
       >
         <Heading
-          as="h2"
-          size="3xl"
+          as="h3"
+          size="2xl"
           fontWeight="extrabold"
           letterSpacing="tight"
         >
@@ -29,11 +29,10 @@ const SiteBanner = () => {
 
         <Button
           mt="8"
-          as="a"
-          href="#section1"
           size="lg"
           colorScheme="blue"
           fontWeight="bold"
+          onClick={handleScroll}
         >
           Get Started
         </Button>
