@@ -10,7 +10,7 @@ import {
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 
-import PlaceIcon from '../assets/3dicon.png';
+import PlaceIconWhite from '../assets/3diconWhite.png';
 import React, { useRef, useEffect, useState } from 'react';
 
 const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
@@ -18,7 +18,6 @@ const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
   const arButton = useRef(null);
   const [displayMode, setDisplayMode] = useState('');
   const [hide, setHide] = useState(false);
-  console.log(displayMode);
 
   let output = null;
 
@@ -103,11 +102,11 @@ const ARCard = ({ name, img, glbLink, usdzLink, SkyBox }) => {
       >
         <Button
           ref={arButton}
-          leftIcon={<Image src={PlaceIcon} w="15px" />}
+          leftIcon={<Image src={PlaceIconWhite} w="15px" />}
           slot="ar-button"
           variant="solid"
           textTransform="uppercase"
-          colorScheme="linkedin"
+          colorScheme="blue"
           position="absolute"
           bottom="4px"
           left="27%"

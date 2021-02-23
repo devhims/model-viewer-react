@@ -12,12 +12,12 @@ const ThemeSelector = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box m={3}>
+    <Box m={{ base: '0', md: '2' }}>
       <IconButton
         icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
         onClick={toggleColorMode}
         variant="ghost"
-        _hover={{ bgColor: 'whiteAlpha.500' }}
+        // _hover={{ bgColor: 'whiteAlpha.500' }}
       />
     </Box>
   );

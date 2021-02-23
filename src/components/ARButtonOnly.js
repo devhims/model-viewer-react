@@ -2,7 +2,7 @@ import '@google/model-viewer';
 import { Button, Box, Image } from '@chakra-ui/react';
 import React, { useRef, useEffect, useState } from 'react';
 
-import PlaceIcon from '../assets/3dicon.png';
+import PlaceIconWhite from '../assets/3diconWhite.png';
 
 const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
   const arButton = useRef(null);
@@ -31,11 +31,11 @@ const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
       >
         <Button
           ref={arButton}
-          leftIcon={<Image src={PlaceIcon} w="15px" />}
+          leftIcon={<Image src={PlaceIconWhite} w="15px" />}
           slot="ar-button"
           variant="solid"
           textTransform="uppercase"
-          colorScheme="linkedin"
+          colorScheme="blue"
           position="absolute"
           bottom="4px"
           left="27%"

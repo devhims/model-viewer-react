@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from 'react';
 import './components/ARItem';
 import ARItem from './components/ARItem';
 import ARCard from './components/ARCard';
@@ -26,19 +27,21 @@ import {
 } from '@chakra-ui/react';
 
 import ThemeSelector from './components/ThemeSelector';
-import CardLink from './components/CardLinks';
+import SiteBanner from './components/SiteBanner';
+import NavBar from './components/NavBar';
+import userEvent from '@testing-library/user-event';
 
 const name = 'Astronaut';
 
-function App() {
+const App = () => {
   return (
     <>
-      <ThemeSelector />
       <Router>
+        <NavBar />
+        <Divider borderWidth="2px" />
         <Switch>
           <Route path="/" exact>
-            <Divider borderWidth="2px" />
-            <CardLink />
+            <SiteBanner />
             <VStack
               justify="space-evenly"
               bgColor={mode('white', 'gray.600')}
@@ -53,6 +56,7 @@ function App() {
                 borderRadius="md"
                 shadow="baseline"
                 mb={5}
+                id={'section1'}
               >
                 <VStack>
                   <Tag
@@ -176,6 +180,6 @@ function App() {
       </Router>
     </>
   );
-}
+};
 
 export default App;
