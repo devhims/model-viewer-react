@@ -1,14 +1,10 @@
-:root {
-  touch-action: pan-y;
-  height: 100%;
-}
-
 html,
 body {
   overflow-x: hidden;
 }
 body {
   width: 100%;
+  touch-action: pan-y;
 }
 
 .ArButton {
@@ -34,6 +30,7 @@ body {
   height: 100%;
   background-color: #f0f5f5;
   --poster-color: #ffffff00;
+  touch-action: none;
 }
 
 .ArButton .myB {
