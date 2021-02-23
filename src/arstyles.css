@@ -1,3 +1,16 @@
+:root {
+  touch-action: pan-y;
+  height: 100%;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+body {
+  width: 100%;
+}
+
 .ArButton {
   text-align: center;
 }

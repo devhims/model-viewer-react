@@ -14,8 +14,8 @@ const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
     }
   }, [arButton]);
 
-  const isHidden = (el) => {
-    return el.offsetParent === null;
+  const isHidden = (element) => {
+    return element.offsetParent === null;
   };
 
   return (
