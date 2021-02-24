@@ -27,6 +27,7 @@ const ARCard = ({
   exposure,
   arScale,
   shadowIntensity,
+  shadowSoftness,
 }) => {
   const arButton = useRef(null);
   const [hide, setHide] = useState(false);
@@ -41,6 +42,10 @@ const ARCard = ({
 
   const isHidden = (element) => {
     return element.offsetParent === null;
+  };
+
+  const arCheck = () => {
+    isHidden(arButton.current) ? setHide(true) : setHide(false);
   };
 
   return (
@@ -76,6 +81,7 @@ const ARCard = ({
         alt={alt}
         title={name}
         link={link}
+        shadow-softness={shadowSoftness}
       >
         <Button
           ref={arButton}
@@ -91,6 +97,7 @@ const ARCard = ({
           className="myB"
           fontWeight="normal"
           ml={-3.5}
+          onClick={arCheck}
         >
           Launch AR
         </Button>
@@ -158,4 +165,5 @@ ARCard.defaultProps = {
   name: 'Comfy Couch',
   link: 'https://cosmoreal.io/',
   skyboxImage: null,
+  shadowSoftness: '1',
 };

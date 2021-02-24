@@ -8,6 +8,7 @@ import OfficeCouchGLB from './assets/Office_Couch.glb';
 import OfficeCouchUSDZ from './assets/Office_Couch.usdz';
 import CouchImage from './assets/Couch.png';
 import SkyBox from './assets/spruit_sunrise_1k_HDR.hdr';
+// import V13 from './assets/V13glb.glb';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
