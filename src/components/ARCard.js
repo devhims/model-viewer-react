@@ -7,6 +7,7 @@ import {
   Flex,
   Image,
   useColorModeValue as mode,
+  useForceUpdate,
 } from '@chakra-ui/react';
 
 import PlaceIconWhite from '../assets/3diconWhite.png';
@@ -29,7 +30,7 @@ const ARCard = ({
   shadowIntensity,
   shadowSoftness,
 }) => {
-  const arButton = useRef(null);
+  const arButton = useRef({});
   const [hide, setHide] = useState(false);
 
   let currentExposure = mode('2', '1');
@@ -45,7 +46,9 @@ const ARCard = ({
   };
 
   const arCheck = () => {
-    isHidden(arButton.current) ? setHide(true) : setHide(false);
+    setTimeout(() => {
+      isHidden(arButton.current) ? setHide(true) : setHide(false);
+    }, 500);
   };
 
   return (
@@ -125,6 +128,8 @@ const ARCard = ({
         </Text>
       </Flex>
       <Badge
+        as="a"
+        href="https://developers.google.com/ar/discover/supported-devices"
         display={hide ? 'block' : 'none'}
         colorScheme="red"
         position="absolute"

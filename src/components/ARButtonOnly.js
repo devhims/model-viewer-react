@@ -18,6 +18,12 @@ const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
     return element.offsetParent === null;
   };
 
+  const arCheck = () => {
+    setTimeout(() => {
+      isHidden(arButton.current) ? setHide(true) : setHide(false);
+    }, 500);
+  };
+
   return (
     <Box className="ArButton">
       <model-viewer
@@ -43,6 +49,7 @@ const ARButtonOnly = ({ name, img, glbLink, usdzLink, SkyBox }) => {
           className="myB"
           fontWeight="normal"
           ml={-3.5}
+          onClick={arCheck}
         >
           Launch AR
         </Button>
