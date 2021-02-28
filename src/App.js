@@ -3,12 +3,12 @@ import React, { useRef } from 'react';
 import ARCard from './components/ARCard';
 import ARButtonOnly from './components/ARButtonOnly';
 import WithQRCode from './components/WithQRCode';
+import ARLink from './components/ARLink';
 
 import OfficeCouchGLB from './assets/Office_Couch.glb';
 import OfficeCouchUSDZ from './assets/Office_Couch.usdz';
 import CouchImage from './assets/Couch.png';
 import SkyBox from './assets/spruit_sunrise_1k_HDR.hdr';
-// import V13 from './assets/V13glb.glb';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -127,14 +127,47 @@ const App = () => {
                   </Tag>
                   {/* 3. Assign direct imports with some indirect object properties */}
                   <ARButtonOnly
-                    name={SampleModel.name}
-                    img={CouchImage}
-                    glbLink={OfficeCouchGLB}
-                    usdzLink={OfficeCouchUSDZ}
+                    src={OfficeCouchGLB}
+                    ios-src={OfficeCouchUSDZ}
+                    ar-modes="scene-viewer quick-look"
+                    ar
+                    ar-scale="auto"
+                    alt="A 3D model of some wall art"
+                    reveal="manual"
                   />
                 </VStack>
               </Center>
               <Divider borderWidth="2px" />
+              <Center
+                borderWidth="1px"
+                p={3}
+                borderRadius="md"
+                shadow="baseline"
+              >
+                <VStack>
+                  <Tag
+                    size="lg"
+                    variant="solid"
+                    colorScheme="pink"
+                    rounded="sm"
+                    fontSize="sm"
+                    alignSelf="flex-start"
+                    mb={5}
+                    ml={-4}
+                    mt={-1}
+                  >
+                    AR Link:
+                  </Tag>
+                  <ARLink
+                    src={OfficeCouchGLB}
+                    ios-src={OfficeCouchUSDZ}
+                    ar-modes="scene-viewer quick-look"
+                    ar
+                    ar-scale="fixed"
+                    reveal="manual"
+                  />
+                </VStack>
+              </Center>
             </VStack>
           </Route>
           <Route path="/comfycouch">

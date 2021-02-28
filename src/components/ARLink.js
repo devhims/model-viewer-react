@@ -1,10 +1,9 @@
 import '@google/model-viewer';
-import { Button, Box, Image } from '@chakra-ui/react';
+import { Box, Link } from '@chakra-ui/react';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 import React, { useRef, useEffect, useState } from 'react';
 
-import PlaceIconWhite from '../assets/3diconWhite.png';
-
-const ARButtonOnly = ({ styles, ...rest }) => {
+const ARLink = ({ styles, ...rest }) => {
   const arButton = useRef(null);
   const [hide, setHide] = useState(false);
 
@@ -25,46 +24,39 @@ const ARButtonOnly = ({ styles, ...rest }) => {
   };
 
   return (
-    <Box pos="relative" {...styles}>
+    <Box position="relative" {...styles}>
       <model-viewer
         {...rest}
         style={{ display: 'inline-block', contain: 'size', height: 'inherit' }}
       >
-        <Button
+        <Link
+          as="button"
           ref={arButton}
-          leftIcon={<Image src={PlaceIconWhite} w="15px" />}
           slot="ar-button"
-          variant="solid"
-          textTransform="uppercase"
-          colorScheme="blue"
           position="absolute"
           bottom="4px"
           left="50%"
           transform="translate(-50%, -50%)"
-          height={6}
-          fontWeight="medium"
           onClick={arCheck}
         >
-          Launch AR
-        </Button>
+          Launch AR <ExternalLinkIcon mt="-4px" />
+        </Link>
       </model-viewer>
-      <Button
+      <Link
+        href="https://developers.google.com/ar/discover/supported-devices"
+        isExternal
         display={hide ? 'block' : 'none'}
-        disabled
-        variant="solid"
-        textTransform="uppercase"
-        colorScheme="linkedin"
         position="absolute"
-        bottom={-15}
+        bottom="4px"
         left="50%"
         transform="translate(-50%, -50%)"
-        w="auto"
+        w="max-content"
         textAlign="center"
       >
-        AR not available on this device
-      </Button>
+        AR not available on this device <ExternalLinkIcon mt="-4px" />
+      </Link>
     </Box>
   );
 };
 
-export default ARButtonOnly;
+export default ARLink;
