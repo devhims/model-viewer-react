@@ -1,8 +1,16 @@
-import { Box, Button, Heading, Text, Code, Link } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Heading,
+  Text,
+  Code,
+  Link,
+  useColorModeValue as mode,
+} from '@chakra-ui/react';
 
 const SiteBanner = ({ handleScroll }) => {
   return (
-    <Box as="section">
+    <Box as="section" bg={mode('gray.200', 'gray.900')}>
       <Box
         maxW="2xl"
         mx="auto"

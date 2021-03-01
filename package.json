@@ -14,8 +14,10 @@
     "framer-motion": "^3.3.0",
     "qrcode.react": "^1.0.1",
     "react": "^17.0.1",
+    "react-div-100vh": "^0.5.6",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
+    "react-screen-orientation": "^0.0.4",
     "react-scripts": "4.0.2",
     "web-vitals": "^1.1.0"
   },

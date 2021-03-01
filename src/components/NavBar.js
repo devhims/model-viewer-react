@@ -28,10 +28,10 @@ const NavBar = (props) => {
   return (
     <Flex
       as="nav"
-      align="baseline"
+      align="center"
       justify="space-between"
       wrap="wrap"
-      padding="1.5rem"
+      padding="1rem"
       {...props}
     >
       <ThemeSelector />
@@ -58,6 +58,12 @@ const NavBar = (props) => {
         </Link>
         <Link to="/arbutton">
           <MenuItems>AR Button</MenuItems>
+        </Link>
+        <Link to="/arlink">
+          <MenuItems>AR Link</MenuItems>
+        </Link>
+        <Link to="/comfycouchfs">
+          <MenuItems>AR FS</MenuItems>
         </Link>
       </Box>
 
