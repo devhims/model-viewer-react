@@ -27,10 +27,12 @@ const ARButtonOnly = ({ styles, ...rest }) => {
   return (
     <Box pos="relative" {...styles}>
       <model-viewer
+        id="model-viewer"
         {...rest}
         style={{ display: 'inline-block', contain: 'size', height: 'inherit' }}
       >
         <Button
+          id="ar-button"
           ref={arButton}
           leftIcon={<Image src={PlaceIconWhite} w="15px" />}
           slot="ar-button"
@@ -44,9 +46,15 @@ const ARButtonOnly = ({ styles, ...rest }) => {
           height={6}
           fontWeight="medium"
           onClick={arCheck}
+          _active={{
+            bg: 'blue.100',
+          }}
         >
           Launch AR
         </Button>
+        <div id="error" className="hide">
+          AR is not supported on this device
+        </div>
       </model-viewer>
       <Button
         display={hide ? 'block' : 'none'}

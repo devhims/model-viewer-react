@@ -7,49 +7,14 @@ import {
   Flex,
   Image,
   useColorModeValue as mode,
-  useForceUpdate,
 } from '@chakra-ui/react';
 
-import PlaceIconWhite from '../assets/3diconWhite.png';
 import React, { useRef, useEffect, useState } from 'react';
 import Div100vh, { use100vh } from 'react-div-100vh';
-import DeviceOrientation, {
-  Orientation,
-  onOrientationChange,
-} from 'react-screen-orientation';
 
-const ARCardFS = ({
-  name,
-  img,
-  glbLink,
-  usdzLink,
-  loading,
-  alt,
-  link,
-  arModes,
-  ar,
-  skyboxImage,
-  environmentImage,
-  exposure,
-  arScale,
-  shadowIntensity,
-  shadowSoftness,
-  isFS = false,
-}) => {
+const ARCardFS = ({ isFS = false, styles, ...rest }) => {
   const arButton = useRef({});
   const [hide, setHide] = useState(false);
-
-  //   const [orientation, setOrientation] = useState();
-
-  //   useEffect(() => {
-  //     const handleOrientationChange = () =>
-  //       window.screen.orientation && setOrientation(window.screen.orientation);
-  //     window.addEventListener('deviceorientation', handleOrientationChange);
-  //     return () =>
-  //       window.removeEventListener('deviceorientation', handleOrientationChange);
-  //   }, []);
-
-  //   console.log(orientation);
 
   let currentExposure = mode('2', '1');
 
@@ -57,7 +22,7 @@ const ARCardFS = ({
     if (arButton) {
       isHidden(arButton.current) ? setHide(true) : setHide(false);
     }
-  }, [arButton]);
+  }, [arButton.offsetParent]);
 
   const isHidden = (element) => {
     return element.offsetParent === null;
@@ -73,7 +38,6 @@ const ARCardFS = ({
     <Div100vh>
       <Box
         bgColor={mode('gray.200', 'gray.400')}
-        //   p={{ base: '1', md: '2' }}
         textAlign="center"
         borderRadius={3}
         shadow="dark-lg"
@@ -81,38 +45,32 @@ const ARCardFS = ({
         overflow="hidden"
         w="100vw"
         h={isFS ? use100vh : '400px'}
+        {...styles}
       >
         <model-viewer
-          alt={alt}
-          loading={loading}
-          src={glbLink}
-          ios-src={usdzLink}
-          poster={img}
-          ar-modes={arModes}
-          auto-rotate
-          camera-controls
-          ar={ar}
-          shadow-intensity={shadowIntensity}
-          skybox-image={skyboxImage}
-          environment-image={skyboxImage}
-          environment-image={environmentImage}
+          poster={ARCardFS.defaultProps.img}
+          src={ARCardFS.defaultProps.glbLink}
+          ios-src={ARCardFS.defaultProps.usdzLink}
+          ar-modes={ARCardFS.defaultProps.arModes}
+          ar={ARCardFS.defaultProps.ar}
+          ar-scale={ARCardFS.defaultProps.arScale}
+          camera-controls={ARCardFS.defaultProps.cameraControls}
           exposure={currentExposure}
-          ar-scale={arScale}
-          alt={alt}
-          title={name}
-          link={link}
-          shadow-softness={shadowSoftness}
+          loading={ARCardFS.defaultProps.loading}
+          shadow-intensity={ARCardFS.defaultProps.shadowIntensity}
+          shadow-softness={ARCardFS.defaultProps.shadowSoftness}
+          alt={ARCardFS.defaultProps.alt}
+          {...rest}
           style={{
             display: 'block',
             width: '100%',
             height: '100%',
             backgroundColor: '#f0f5f5',
-            // touchAction: 'none',
           }}
         >
           <Button
             ref={arButton}
-            leftIcon={<Image src={PlaceIconWhite} w="15px" />}
+            leftIcon={<Image src={ARCardFS.defaultProps.buttonIcon} w="15px" />}
             slot="ar-button"
             variant="solid"
             textTransform="uppercase"
@@ -178,12 +136,15 @@ ARCardFS.defaultProps = {
     'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Office_Couch.usdz',
   img:
     'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Couch.png',
+  buttonIcon:
+    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/3diconWhite.png',
 
   loading: 'eager',
   reveal: 'auto',
   autoRotate: true,
   cameraControls: true,
   shadowIntensity: '1',
+  shadowSoftness: '1',
   environmentImage: 'neutral',
   skyboxImage: null,
   exposure: '2',
@@ -192,7 +153,7 @@ ARCardFS.defaultProps = {
   arModes: 'scene-viewer quick-look',
   arScale: 'auto',
   arPlacement: 'floor',
-  alt: '3D model',
+  alt: 'A 3D model',
   name: 'Comfy Couch',
   link: 'https://cosmoreal.io/',
   skyboxImage: null,
