@@ -65,6 +65,9 @@ const NavBar = (props) => {
         <Link to="/comfycouchfs">
           <MenuItems>AR FS</MenuItems>
         </Link>
+        {/* <Link to="/qrtoar">
+          <MenuItems>Direct AR</MenuItems>
+        </Link> */}
       </Box>
 
       <Box

@@ -3,8 +3,9 @@ import { Box, Link } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import React, { useRef, useEffect, useState } from 'react';
 
-const ARLink = ({ styles, ...rest }) => {
+const QRToAR = ({ styles, ...rest }) => {
   const arButton = useRef(null);
+  const modelViewer = useRef(null);
   const [hide, setHide] = useState(false);
 
   useEffect(() => {
@@ -19,13 +20,21 @@ const ARLink = ({ styles, ...rest }) => {
 
   const arCheck = () => {
     setTimeout(() => {
+      arCheck();
       isHidden(arButton.current) ? setHide(true) : setHide(false);
     }, 500);
   };
 
+  useEffect(() => {
+    if (modelViewer) {
+      modelViewer.current.activateAR();
+    }
+  }, [modelViewer]);
+
   return (
     <Box position="relative" {...styles}>
       <model-viewer
+        ref={modelViewer}
         {...rest}
         style={{
           display: 'inline-block',
@@ -34,6 +43,7 @@ const ARLink = ({ styles, ...rest }) => {
         }}
       >
         <Link
+          opacity="1"
           ref={arButton}
           slot="ar-button"
           position="absolute"
@@ -42,7 +52,7 @@ const ARLink = ({ styles, ...rest }) => {
           transform="translate(-50%, -50%)"
           onClick={arCheck}
         >
-          Launch AR <ExternalLinkIcon mt="-4px" />
+          AR Available <ExternalLinkIcon mt="-4px" />
         </Link>
       </model-viewer>
       <Link
@@ -62,4 +72,4 @@ const ARLink = ({ styles, ...rest }) => {
   );
 };
 
-export default ARLink;
+export default QRToAR;

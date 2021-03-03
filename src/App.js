@@ -5,11 +5,15 @@ import ARButtonOnly from './components/ARButtonOnly';
 import WithQRCode from './components/WithQRCode';
 import ARLink from './components/ARLink';
 import ARCardFS from './components/ARCardFS';
+import QRToAR from './components/QRToAR';
 
 import OfficeCouchGLB from './assets/Office_Couch.glb';
 import OfficeCouchUSDZ from './assets/Office_Couch.usdz';
 import CouchImage from './assets/Couch.png';
 import SkyBox from './assets/spruit_sunrise_1k_HDR.hdr';
+import logoIcon from './assets/ChairIcon.png';
+import QRCode from 'qrcode.react';
+import Footer from './components/Footer';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -19,6 +23,7 @@ import {
   Divider,
   Tag,
   useColorModeValue as mode,
+  Box,
 } from '@chakra-ui/react';
 
 import SiteBanner from './components/SiteBanner';
@@ -119,7 +124,7 @@ const App = () => {
                   <ARCard {...SampleModel} />
                 </VStack>
               </Center>
-              <Divider borderWidth="2px" m={3} />
+              <Divider borderWidth="2px" />
               <Center
                 borderWidth="1px"
                 p={3}
@@ -183,7 +188,7 @@ const App = () => {
                   />
                 </VStack>
               </Center>
-              <Divider borderWidth="2px" />
+              <Divider borderWidth="2px" m={3} />
               <Center>
                 <VStack w="auto" h="400px">
                   <Tag
@@ -206,6 +211,29 @@ const App = () => {
                   />
                 </VStack>
               </Center>
+              <Divider borderWidth="2px" pt={14} />
+              <Center>
+                <Box w="128px" h="128px" m="0 auto" bgColor="beige" mt={2}>
+                  <QRCode
+                    value={'http://192.168.1.3:3000/qrtoar/'}
+                    size={128}
+                    bgColor={mode('white', '#2d3848')}
+                    fgColor={'#1591cf'}
+                    level={'M'}
+                    includeMargin={false}
+                    renderAs={'svg'}
+                    imageSettings={{
+                      src: logoIcon,
+                      x: null,
+                      y: null,
+                      height: 24,
+                      width: 24,
+                      excavate: true,
+                    }}
+                  />
+                </Box>
+              </Center>
+              <Divider borderWidth="2px" mt={12} mb={4} />
             </VStack>
           </Route>
           <Route path="/comfycouch">
@@ -246,6 +274,19 @@ const App = () => {
               />
             </Center>
           </Route>
+          <Route path="/qrtoar">
+            <Center my={5} h="70vh">
+              <QRToAR
+                src={OfficeCouchGLB}
+                ios-src={OfficeCouchUSDZ}
+                ar-modes="scene-viewer quick-look"
+                ar
+                ar-scale="fixed"
+                reveal="manual"
+              />
+            </Center>
+          </Route>
+          <Footer />
         </div>
       </Switch>
     </Router>

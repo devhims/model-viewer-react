@@ -4,6 +4,7 @@ import App from './App';
 import { ChakraProvider } from '@chakra-ui/react';
 import './arstyles.css';
 import theme from './utilis/theme';
+import { IconContext } from 'react-icons';
 
 ReactDOM.render(
   <React.StrictMode>
