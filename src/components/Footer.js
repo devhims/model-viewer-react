@@ -1,29 +1,16 @@
-import {
-  Box,
-  ButtonGroup,
-  Flex,
-  IconButton,
-  Link,
-  Stack,
-  Text,
-  Image,
-  VStack,
-} from '@chakra-ui/react';
-import { FaGithub, FaLinkedin, FaTwitter, FaHeart } from 'react-icons/fa';
-import { IconContext } from 'react-icons';
-// import { Logo } from './Logo';
+import { ButtonGroup, IconButton, Text, Image, VStack } from '@chakra-ui/react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import ChairLogo from '../assets/ChairIcon.png';
 import { ReactComponent as HeartLogo } from '../assets/heart.svg';
 
 const Footer = () => {
   return (
-    <VStack direction="column" mx="auto" align="center">
+    <VStack direction="column" mx="auto" align="center" pb={2}>
       <a aria-current="page" aria-label="Back to Home page" href="/" rel="home">
         <Image src={ChairLogo} w={10} />
       </a>
       <Text fontSize="sm" color="gray.600">
-        {/* <span>Made with ❤️ by Himanshu</span> */}
-        <span>
+        <span style={{ wordSpacing: '3px' }}>
           Made with{' '}
           <HeartLogo
             width="10px"
@@ -33,18 +20,17 @@ const Footer = () => {
           by Himanshu
         </span>
       </Text>
-
       <ButtonGroup color="gray.600" variant="ghost" size="md" spacing="0.1rem">
         <IconButton
           as="a"
-          href="www.google.com"
+          href="https://www.linkedin.com/in/creativehims/"
           aria-label="LinkedIn"
           icon={<FaLinkedin />}
         />
         <IconButton
           as="a"
           href="https://github.com/devhims/model-viewer-react"
-          aria-label="LinkedIn"
+          aria-label="GitHub"
           icon={<FaGithub />}
         />
       </ButtonGroup>

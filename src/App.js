@@ -189,6 +189,48 @@ const App = () => {
                 </VStack>
               </Center>
               <Divider borderWidth="2px" m={3} />
+              <Center
+                borderWidth="1px"
+                p={3}
+                borderRadius="md"
+                shadow="baseline"
+              >
+                <VStack>
+                  <Tag
+                    size="lg"
+                    variant="solid"
+                    colorScheme="pink"
+                    rounded="sm"
+                    fontSize="sm"
+                    alignSelf="flex-start"
+                    mb={2}
+                    ml={-4}
+                    mt={-1}
+                  >
+                    Scan to AR:
+                  </Tag>
+                  <Box w="128px" h="128px" bgColor="beige">
+                    <QRCode
+                      value={'http://192.168.1.3:3000/qrtoar/'}
+                      size={128}
+                      bgColor={mode('white', '#2d3848')}
+                      fgColor={'#1591cf'}
+                      level={'M'}
+                      includeMargin={false}
+                      renderAs={'svg'}
+                      imageSettings={{
+                        src: logoIcon,
+                        x: null,
+                        y: null,
+                        height: 24,
+                        width: 24,
+                        excavate: true,
+                      }}
+                    />
+                  </Box>
+                </VStack>
+              </Center>
+              <Divider borderWidth="2px" />
               <Center>
                 <VStack w="auto" h="400px">
                   <Tag
@@ -211,29 +253,6 @@ const App = () => {
                   />
                 </VStack>
               </Center>
-              <Divider borderWidth="2px" pt={14} />
-              <Center>
-                <Box w="128px" h="128px" m="0 auto" bgColor="beige" mt={2}>
-                  <QRCode
-                    value={'http://192.168.1.3:3000/qrtoar/'}
-                    size={128}
-                    bgColor={mode('white', '#2d3848')}
-                    fgColor={'#1591cf'}
-                    level={'M'}
-                    includeMargin={false}
-                    renderAs={'svg'}
-                    imageSettings={{
-                      src: logoIcon,
-                      x: null,
-                      y: null,
-                      height: 24,
-                      width: 24,
-                      excavate: true,
-                    }}
-                  />
-                </Box>
-              </Center>
-              <Divider borderWidth="2px" mt={12} mb={4} />
             </VStack>
           </Route>
           <Route path="/comfycouch">

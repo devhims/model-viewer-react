@@ -7,6 +7,7 @@ import {
   Flex,
   Image,
   useColorModeValue as mode,
+  Divider,
 } from '@chakra-ui/react';
 
 import React, { useRef, useEffect, useState } from 'react';
@@ -40,7 +41,6 @@ const ARCardFS = ({ isFS = false, styles, ...rest }) => {
         bgColor={mode('gray.200', 'gray.400')}
         textAlign="center"
         borderRadius={3}
-        shadow="dark-lg"
         position="relative"
         overflow="hidden"
         w="100vw"
@@ -123,6 +123,7 @@ const ARCardFS = ({ isFS = false, styles, ...rest }) => {
           AR not available on this device
         </Badge>
       </Box>
+      <Divider borderWidth="2px" my={3} />
     </Div100vh>
   );
 };
