@@ -27,8 +27,8 @@ const SiteBanner = ({ handleScroll }) => {
           Model Viewer for React ⚡
         </Heading>
         <Text mt="4" fontSize="lg">
-          Tailor made components and layouts to speed up your AR workflow on the
-          web. Based on the{' '}
+          Tailor made components to speed up your AR workflow on the web. Based
+          on the{' '}
           <Link href="https://modelviewer.dev/" isExternal>
             <Code colorScheme="red">model-viewer</Code>
           </Link>{' '}

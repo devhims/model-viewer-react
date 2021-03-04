@@ -7,8 +7,8 @@ import {
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import ChairLogo from '../assets/ChairIcon.png';
-import { ReactComponent as HeartLogo } from '../assets/heart.svg';
+import ChairLogo from '../../assets/ChairIcon.png';
+import { ReactComponent as HeartLogo } from '../../assets/heart.svg';
 
 const Footer = () => {
   return (

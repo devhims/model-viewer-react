@@ -7,7 +7,6 @@ import {
   Flex,
   Image,
   useColorModeValue as mode,
-  useForceUpdate,
 } from '@chakra-ui/react';
 
 import PlaceIconWhite from '../assets/3diconWhite.png';

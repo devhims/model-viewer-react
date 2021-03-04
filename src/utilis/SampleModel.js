@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react';
-import CouchImage from '../assets/Couch.png';
-import PlaceIcon from '../assets/3diconWhite.png';
-import OfficeCouchGLB from '../assets/Office_Couch.glb';
-import OfficeCouchUSDZ from '../assets/Office_Couch.usdz';
-import SkyBoxImage from '../assets/spruit_sunrise_1k_HDR.hdr';
-
 const SampleModel = {
-  name: 'Comfy Couch',
-  img: CouchImage,
-  glbLink: OfficeCouchGLB,
-  usdzLink: OfficeCouchUSDZ,
+  title: 'Comfy Couch',
+  glbLink:
+    'https://cdn.glitch.com/535530f6-0b12-4f5f-9140-39b40f6af82b%2FOffice_Couch.glb?v=1614846691007',
+  usdzLink:
+    'https://cdn.glitch.com/535530f6-0b12-4f5f-9140-39b40f6af82b%2FOffice_Couch.usdz?v=1614846692051',
+  img:
+    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Couch.png',
+  buttonIcon:
+    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/3diconWhite.png',
   loading: 'eager',
   reveal: 'auto',
   alt: 'A 3d model display',

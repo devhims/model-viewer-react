@@ -49,7 +49,7 @@ const ARCardFS = ({ isFS = false, styles, ...rest }) => {
       >
         <model-viewer
           poster={ARCardFS.defaultProps.img}
-          src={ARCardFS.defaultProps.glbLink}
+          src={`${ARCardFS.defaultProps.glbLink}&title=${ARCardFS.defaultProps.title}&link=${ARCardFS.defaultProps.link}`}
           ios-src={ARCardFS.defaultProps.usdzLink}
           ar-modes={ARCardFS.defaultProps.arModes}
           ar={ARCardFS.defaultProps.ar}
@@ -132,9 +132,9 @@ export default ARCardFS;
 
 ARCardFS.defaultProps = {
   glbLink:
-    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Office_Couch.glb',
+    'https://cdn.glitch.com/535530f6-0b12-4f5f-9140-39b40f6af82b%2FOffice_Couch.glb?v=1614846691007',
   usdzLink:
-    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Office_Couch.usdz',
+    'https://cdn.glitch.com/535530f6-0b12-4f5f-9140-39b40f6af82b%2FOffice_Couch.usdz?v=1614846692051',
   img:
     'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Couch.png',
   buttonIcon:
@@ -155,7 +155,7 @@ ARCardFS.defaultProps = {
   arScale: 'auto',
   arPlacement: 'floor',
   alt: 'A 3D model',
-  name: 'Comfy Couch',
+  title: 'Comfy Couch',
   link: 'https://cosmoreal.io/',
   skyboxImage: null,
   shadowSoftness: '1',

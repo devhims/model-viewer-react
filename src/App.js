@@ -1,5 +1,14 @@
 import React, { useRef } from 'react';
 
+import {
+  Center,
+  VStack,
+  Divider,
+  Tag,
+  useColorModeValue as mode,
+  Box,
+} from '@chakra-ui/react';
+
 import ARCard from './components/ARCard';
 import ARButtonOnly from './components/ARButtonOnly';
 import WithQRCode from './components/WithQRCode';
@@ -13,21 +22,12 @@ import CouchImage from './assets/Couch.png';
 import SkyBox from './assets/spruit_sunrise_1k_HDR.hdr';
 import logoIcon from './assets/ChairIcon.png';
 import QRCode from 'qrcode.react';
-import Footer from './components/Footer';
+
+import Footer from './components/SiteLayout/Footer';
+import SiteBanner from './components/SiteLayout/SiteBanner';
+import NavBar from './components/SiteLayout/NavBar';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import {
-  Center,
-  VStack,
-  Divider,
-  Tag,
-  useColorModeValue as mode,
-  Box,
-} from '@chakra-ui/react';
-
-import SiteBanner from './components/SiteBanner';
-import NavBar from './components/NavBar';
 import SampleModel from './utilis/SampleModel';
 
 const App = () => {
@@ -91,8 +91,8 @@ const App = () => {
                   </Tag>
                   {/* 1. Assign only the required properties from the object */}
                   <WithQRCode
-                    name={SampleModel.name}
-                    img={SampleModel.CouchImage}
+                    name={SampleModel.title}
+                    img={SampleModel.img}
                     glbLink={SampleModel.glbLink}
                     usdzLink={SampleModel.usdzLink}
                   />
@@ -179,8 +179,8 @@ const App = () => {
                     AR Link:
                   </Tag>
                   <ARLink
-                    src={OfficeCouchGLB}
-                    ios-src={OfficeCouchUSDZ}
+                    src={`${SampleModel.glbLink}&title=${SampleModel.title}&link=${SampleModel.link}`}
+                    ios-src={SampleModel.usdzLink}
                     ar-modes="scene-viewer quick-look"
                     ar
                     ar-scale="fixed"
@@ -245,7 +245,7 @@ const App = () => {
                   </Tag>
 
                   <ARCardFS
-                    src={OfficeCouchGLB}
+                    src={`${SampleModel.glbLink}&title=${SampleModel.title}&link=${SampleModel.link}`}
                     ios-src={OfficeCouchUSDZ}
                     shadow-softness="0"
                     ar-scale="fixed"
@@ -258,8 +258,8 @@ const App = () => {
           <Route path="/comfycouch">
             <Center my={5} h="80vh">
               <WithQRCode
-                name={SampleModel.name}
-                img={CouchImage}
+                name={SampleModel.title}
+                img={SampleModel.img}
                 glbLink={OfficeCouchGLB}
                 usdzLink={OfficeCouchUSDZ}
                 SkyBox={SkyBox}
@@ -274,8 +274,8 @@ const App = () => {
           <Route path="/arbutton">
             <Center my={5} h="70vh">
               <ARButtonOnly
-                name={SampleModel.name}
-                img={CouchImage}
+                name={SampleModel.title}
+                img={SampleModel.img}
                 glbLink={OfficeCouchGLB}
                 usdzLink={OfficeCouchUSDZ}
               />
@@ -284,8 +284,8 @@ const App = () => {
           <Route path="/arlink">
             <Center my={5} h="70vh">
               <ARLink
-                src={OfficeCouchGLB}
-                ios-src={OfficeCouchUSDZ}
+                src={`${SampleModel.glbLink}&title=${SampleModel.title}&link=${SampleModel.link}`}
+                ios-src={SampleModel.usdzLink}
                 ar-modes="scene-viewer quick-look"
                 ar
                 ar-scale="fixed"
@@ -296,8 +296,8 @@ const App = () => {
           <Route path="/qrtoar">
             <Center my={5} h="70vh">
               <QRToAR
-                src={OfficeCouchGLB}
-                ios-src={OfficeCouchUSDZ}
+                src={`${SampleModel.glbLink}&title=${SampleModel.title}&link=${SampleModel.link}`}
+                ios-src={SampleModel.usdzLink}
                 ar-modes="scene-viewer quick-look"
                 ar
                 ar-scale="fixed"

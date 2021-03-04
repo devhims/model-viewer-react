@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Flex, Text } from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 import { Link } from 'react-router-dom';
-import { HamburgerIcon } from '@chakra-ui/icons';
-import ThemeSelector from './ThemeSelector';
+import ThemeSelector from '../../utilis/ThemeSelector';
 
 const MenuItems = ({ children }) => (
   <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
@@ -12,7 +12,7 @@ const MenuItems = ({ children }) => (
 );
 
 const NavBar = (props) => {
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
 
   return (
