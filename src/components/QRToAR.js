@@ -1,5 +1,5 @@
 import '@google/model-viewer';
-import { Box, Link } from '@chakra-ui/react';
+import { Box, Link, Text } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import React, { useRef, useEffect, useState } from 'react';
 
@@ -32,7 +32,7 @@ const QRToAR = ({ styles, ...rest }) => {
   }, [modelViewer]);
 
   return (
-    <Box position="relative" {...styles}>
+    <Box position="relative" textAlign="center" {...styles}>
       <model-viewer
         ref={modelViewer}
         {...rest}
@@ -54,6 +54,7 @@ const QRToAR = ({ styles, ...rest }) => {
         >
           AR Available <ExternalLinkIcon mt="-4px" />
         </Link>
+        <Text>Please wait or click on the above link</Text>
       </model-viewer>
       <Link
         href="https://developers.google.com/ar/discover/supported-devices"

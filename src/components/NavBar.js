@@ -1,18 +1,9 @@
 import React from 'react';
-import {
-  Box,
-  Heading,
-  Flex,
-  Text,
-  Button,
-  useColorModeValue as mode,
-} from '@chakra-ui/react';
-
-import { HamburgerIcon } from '@chakra-ui/icons';
-
-import ThemeSelector from './ThemeSelector';
+import { Box, Flex, Text } from '@chakra-ui/react';
 
 import { Link } from 'react-router-dom';
+import { HamburgerIcon } from '@chakra-ui/icons';
+import ThemeSelector from './ThemeSelector';
 
 const MenuItems = ({ children }) => (
   <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
@@ -20,7 +11,6 @@ const MenuItems = ({ children }) => (
   </Text>
 );
 
-// Note: This code could be better, so I'd recommend you to understand how I solved and you could write yours better :)
 const NavBar = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
@@ -65,9 +55,6 @@ const NavBar = (props) => {
         <Link to="/comfycouchfs">
           <MenuItems>AR FS</MenuItems>
         </Link>
-        {/* <Link to="/qrtoar">
-          <MenuItems>Direct AR</MenuItems>
-        </Link> */}
       </Box>
 
       <Box

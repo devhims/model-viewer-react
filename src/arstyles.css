@@ -7,7 +7,7 @@ body {
   touch-action: pan-y;
 }
 
-.ArButton {
+/* .ArButton {
   text-align: center;
 }
 
@@ -35,7 +35,7 @@ body {
 
 .ArButton .myB {
   display: flex;
-}
+} */
 
 /* #progress {
   position: absolute;

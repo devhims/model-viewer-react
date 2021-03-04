@@ -85,6 +85,13 @@ const ARCard = ({
         title={name}
         link={link}
         shadow-softness={shadowSoftness}
+        style={{
+          display: 'block',
+          width: '100%',
+          height: '100%',
+          backgroundColor: '#f0f5f5',
+          touchAction: 'none',
+        }}
       >
         <Button
           ref={arButton}

@@ -1,13 +1,7 @@
 import {
   Flex,
   Box,
-  Heading,
   Text,
-  VStack,
-  Input,
-  Select,
-  Button,
-  Center,
   Image,
   Stack,
   useColorModeValue as mode,
