@@ -52,9 +52,6 @@ const ARButtonOnly = ({ styles, ...rest }) => {
         >
           Launch AR
         </Button>
-        <div id="error" className="hide">
-          AR is not supported on this device
-        </div>
       </model-viewer>
       <Button
         display={hide ? 'block' : 'none'}
