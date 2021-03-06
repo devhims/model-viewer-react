@@ -27,6 +27,13 @@ const ARLink = ({ styles, ...rest }) => {
     <Box position="relative" {...styles}>
       <model-viewer
         {...rest}
+        src={`${ARLink.defaultProps.glbLink}&title=${ARLink.defaultProps.title}&link=${ARLink.defaultProps.link}`}
+        ios-src={ARLink.defaultProps.usdzLink}
+        ar-modes={ARLink.defaultProps.arModes}
+        ar={ARLink.defaultProps.ar}
+        ar-scale={ARLink.defaultProps.arScale}
+        camera-controls={ARLink.defaultProps.cameraControls}
+        alt={ARLink.defaultProps.alt}
         style={{
           display: 'inline-block',
           contain: 'size',
@@ -63,3 +70,21 @@ const ARLink = ({ styles, ...rest }) => {
 };
 
 export default ARLink;
+
+ARLink.defaultProps = {
+  glbLink:
+    'https://cdn.glitch.com/535530f6-0b12-4f5f-9140-39b40f6af82b%2FOffice_Couch.glb?v=1614846691007',
+  usdzLink:
+    'https://cdn.glitch.com/535530f6-0b12-4f5f-9140-39b40f6af82b%2FOffice_Couch.usdz?v=1614846692051',
+  loading: 'eager',
+  reveal: 'manual',
+  autoRotate: true,
+  cameraControls: true,
+  ar: true,
+  arModes: 'scene-viewer quick-look',
+  arScale: 'auto',
+  arPlacement: 'floor',
+  alt: 'A 3D model',
+  title: 'Comfy Couch',
+  link: 'https://cosmoreal.io/',
+};

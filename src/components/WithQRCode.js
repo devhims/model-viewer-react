@@ -82,13 +82,7 @@ const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
         </Box>
         <Box flex="1" p={{ base: '5', md: '8' }} m="auto">
           <Flex justifyContent={{ base: 'center', md: 'flex-start' }}>
-            <ARCard
-              name={name}
-              img={img}
-              glbLink={glbLink}
-              usdzLink={usdzLink}
-              SkyBox={SkyBox}
-            />
+            <ARCard />
           </Flex>
         </Box>
       </Flex>

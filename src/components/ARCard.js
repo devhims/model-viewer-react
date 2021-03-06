@@ -12,23 +12,7 @@ import {
 import PlaceIconWhite from '../assets/3diconWhite.png';
 import React, { useRef, useEffect, useState } from 'react';
 
-const ARCard = ({
-  name,
-  img,
-  glbLink,
-  usdzLink,
-  loading,
-  alt,
-  link,
-  arModes,
-  ar,
-  skyboxImage,
-  environmentImage,
-  exposure,
-  arScale,
-  shadowIntensity,
-  shadowSoftness,
-}) => {
+const ARCard = ({ styles, ...rest }) => {
   const arButton = useRef({});
   const [hide, setHide] = useState(false);
 
@@ -63,27 +47,22 @@ const ARCard = ({
       overflow="hidden"
       w={{ base: '250px', sm: '270px', md: '300px' }}
       h={{ base: '350px', md: '400px' }}
+      {...styles}
     >
       <model-viewer
-        alt={alt}
-        loading={loading}
-        src={glbLink}
-        ios-src={usdzLink}
-        poster={img}
-        ar-modes={arModes}
-        auto-rotate
-        camera-controls
-        ar={ar}
-        shadow-intensity={shadowIntensity}
-        skybox-image={skyboxImage}
-        environment-image={skyboxImage}
-        environment-image={environmentImage}
-        exposure={currentExposure}
-        ar-scale={arScale}
-        alt={alt}
-        title={name}
-        link={link}
-        shadow-softness={shadowSoftness}
+        poster={ARCard.defaultProps.img}
+        src={`${ARCard.defaultProps.glbLink}&title=${ARCard.defaultProps.title}&link=${ARCard.defaultProps.link}`}
+        ios-src={ARCard.defaultProps.usdzLink}
+        ar-modes={ARCard.defaultProps.arModes}
+        ar={ARCard.defaultProps.ar}
+        ar-scale={ARCard.defaultProps.arScale}
+        camera-controls={ARCard.defaultProps.cameraControls}
+        exposure={ARCard.defaultProps.exposure}
+        loading={ARCard.defaultProps.loading}
+        shadow-intensity={ARCard.defaultProps.shadowIntensity}
+        shadow-softness={ARCard.defaultProps.shadowSoftness}
+        alt={ARCard.defaultProps.alt}
+        {...rest}
         style={{
           display: 'block',
           width: '100%',
@@ -153,28 +132,28 @@ export default ARCard;
 
 ARCard.defaultProps = {
   glbLink:
-    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Office_Couch.glb',
+    'https://cdn.glitch.com/535530f6-0b12-4f5f-9140-39b40f6af82b%2FOffice_Couch.glb?v=1614846691007',
   usdzLink:
-    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Office_Couch.usdz',
+    'https://cdn.glitch.com/535530f6-0b12-4f5f-9140-39b40f6af82b%2FOffice_Couch.usdz?v=1614846692051',
   img:
     'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/Couch.png',
+  buttonIcon:
+    'https://cdn.jsdelivr.net/gh/devhims/model-viewer-react/src/assets/3diconWhite.png',
 
   loading: 'eager',
   reveal: 'auto',
   autoRotate: true,
   cameraControls: true,
   shadowIntensity: '1',
+  shadowSoftness: '0',
   environmentImage: 'neutral',
   skyboxImage: null,
   exposure: '2',
-  reveal: 'auto',
   ar: true,
   arModes: 'scene-viewer quick-look',
   arScale: 'auto',
   arPlacement: 'floor',
-  alt: '3D model',
-  name: 'Comfy Couch',
+  alt: 'A 3D model',
+  title: 'Comfy Couch',
   link: 'https://cosmoreal.io/',
-  skyboxImage: null,
-  shadowSoftness: '1',
 };

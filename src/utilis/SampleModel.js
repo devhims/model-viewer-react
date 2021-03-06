@@ -17,6 +17,8 @@ const SampleModel = {
   ar: true,
   arScale: 'fixed',
   shadowIntensity: '1',
+  skybox:
+    'https://cdn.glitch.com/535530f6-0b12-4f5f-9140-39b40f6af82b%2Fspruit_sunrise_1k_HDR.hdr?v=1614860237304',
 };
 
 export default SampleModel;

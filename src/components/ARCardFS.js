@@ -14,7 +14,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import Div100vh, { use100vh } from 'react-div-100vh';
 
 const ARCardFS = ({ isFS = false, styles, ...rest }) => {
-  const arButton = useRef({});
+  const arButton = useRef(null);
   const [hide, setHide] = useState(false);
 
   let currentExposure = mode('2', '1');
@@ -149,7 +149,6 @@ ARCardFS.defaultProps = {
   environmentImage: 'neutral',
   skyboxImage: null,
   exposure: '2',
-  reveal: 'auto',
   ar: true,
   arModes: 'scene-viewer quick-look',
   arScale: 'auto',
@@ -157,6 +156,4 @@ ARCardFS.defaultProps = {
   alt: 'A 3D model',
   title: 'Comfy Couch',
   link: 'https://cosmoreal.io/',
-  skyboxImage: null,
-  shadowSoftness: '1',
 };
