@@ -22,11 +22,9 @@ Presenting 3 components that are already developed
 
 ```javascript
 <ARCard
-  name={name}
-  img={CouchImage}
-  glbLink={OfficeCouchGLB}
-  usdzLink={OfficeCouchUSDZ}
-  SkyBox={SkyBox}
+  src={`${SampleModel.glbLink}&title=${SampleModel.title}&link=${SampleModel.link}`}
+  ios-src={SampleModel.usdzLink}
+  exposure={currentExposure}
 />
 ```
 
@@ -34,9 +32,11 @@ Presenting 3 components that are already developed
 
 ```javascript
 <ARButtonOnly
-  name={name}
-  img={CouchImage}
-  glbLink={OfficeCouchGLB}
-  usdzLink={OfficeCouchUSDZ}
+  src={`${SampleModel.glbLink}&title=${SampleModel.title}&link=${SampleModel.link}`}
+  ios-src={SampleModel.usdzLink}
+  ar-modes="scene-viewer quick-look"
+  ar
+  ar-scale="auto"
+  reveal="manual"
 />
 ```
