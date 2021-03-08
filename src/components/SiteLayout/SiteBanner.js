@@ -6,7 +6,10 @@ import {
   Code,
   Link,
   useColorModeValue as mode,
+  Image,
 } from '@chakra-ui/react';
+
+import chakralogo from '../../assets/chakralogo.png';
 
 const SiteBanner = ({ handleScroll }) => {
   return (
@@ -35,6 +38,18 @@ const SiteBanner = ({ handleScroll }) => {
           component.
         </Text>
 
+        <Box textAlign="center" pos="relative" mt={6}>
+          <Text display="inline-block" mr={1}>
+            Built with{' '}
+          </Text>
+          <Image
+            display="inline-block"
+            src={chakralogo}
+            h={5}
+            mx="0 auto"
+            mt={-1}
+          />
+        </Box>
         <Button
           mt="8"
           size="lg"

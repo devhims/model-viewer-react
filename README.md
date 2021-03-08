@@ -53,6 +53,12 @@ Pass the same attributes as you'd with model viewer. This is illustrated in the 
 
 ---
 
+#### Demo
+
+![demogif](./demogif/demo.gif)
+
+---
+
 #### Get Started
 
 Clone the repo, install the dependencies and start the dev server.
