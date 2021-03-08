@@ -1,4 +1,4 @@
-## Beautiful AR compatible React Components made with Model Viewer and Chakra UI
+## Beautiful AR components made with Model Viewer and Chakra UI
 
 By combining the forces of model viewer and Chakra UI, I'm creating React components to efficiently deliver AR capabalities to your web apps.
 
@@ -6,7 +6,7 @@ Pass the same attributes as you'd with model viewer. This is illustrated in the 
 
 #### Presenting 6 components that are already developed
 
-1. Card with QR Code (check out the site link on desktop browser for preview):
+###### 1. Card with QR Code (check out the site link on desktop browser for preview):
 
 ```javascript
 <WithQRCode
@@ -18,7 +18,7 @@ Pass the same attributes as you'd with model viewer. This is illustrated in the 
 />
 ```
 
-2. Simple AR Card
+###### 2. Simple AR Card
 
 ```javascript
 <ARCard
@@ -28,7 +28,7 @@ Pass the same attributes as you'd with model viewer. This is illustrated in the 
 />
 ```
 
-3. AR Button
+###### 3. AR Button
 
 ```javascript
 <ARButtonOnly
@@ -41,13 +41,13 @@ Pass the same attributes as you'd with model viewer. This is illustrated in the 
 />
 ```
 
-4. AR Link
+###### 4. AR Link
 
-5. QR to AR (bypass 3d view)
+###### 5. QR to AR (bypass 3d view)
 
-6. AR Full View (checkout the navbar link)
+###### 6. AR Full View (checkout the navbar link)
 
-ALl the components have default props, so you can test them without passing any props.
+**Note:** All the components have default props, so you can test them without passing any props.
 
 #### Get Started
 
