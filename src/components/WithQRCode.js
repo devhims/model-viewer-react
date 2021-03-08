@@ -12,7 +12,7 @@ import logoW from '../assets/logoW.png';
 import logoIcon from '../assets/ChairIcon.png';
 import QRCode from 'qrcode.react';
 
-const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
+const WithQRCode = ({ ...rest }) => {
   return (
     <>
       <Flex
@@ -82,7 +82,7 @@ const WithQRCode = ({ name, img, glbLink, usdzLink, SkyBox }) => {
         </Box>
         <Box flex="1" p={{ base: '5', md: '8' }} m="auto">
           <Flex justifyContent={{ base: 'center', md: 'flex-start' }}>
-            <ARCard />
+            <ARCard {...rest} />
           </Flex>
         </Box>
       </Flex>

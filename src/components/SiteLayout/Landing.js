@@ -63,10 +63,12 @@ const Landing = () => {
             </Tag>
             {/* 1. Assign only the required properties from the object */}
             <WithQRCode
-              name={SampleModel.title}
-              img={SampleModel.img}
-              glbLink={SampleModel.glbLink}
-              usdzLink={SampleModel.usdzLink}
+              src={`${SampleModel.glbLink}&title=${SampleModel.title}&link=${SampleModel.link}`}
+              ios-src={SampleModel.usdzLink}
+              ar-modes="scene-viewer quick-look"
+              ar
+              ar-scale="auto"
+              exposure={currentExposure}
             />
           </VStack>
         </Center>
